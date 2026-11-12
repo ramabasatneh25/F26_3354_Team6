@@ -4,10 +4,6 @@ Mental wellness tracking and support for college students. Students log a daily 
 their mood and stress change over a semester, and reach campus counseling or a crisis line from any
 page. Practitioners and school administrators publish the resources students are matched to.
 
-**Team 6 — CE/CS/SE 3354 Software Engineering, Fall 2026**
-Repository: https://github.com/ramabasatneh25/F26_3354_Team6
-Implementation, README and demo: Kobby Frimpong · Unit test (Section 4.2): Oliver Perez
-
 React 18 + Tailwind client, Node.js + Express API, JSON data store. Requires **Node.js 18+**.
 
 ---
