@@ -1,0 +1,83 @@
+@import '@fontsource-variable/fraunces';
+@import '@fontsource/instrument-sans/400.css';
+@import '@fontsource/instrument-sans/500.css';
+@import '@fontsource/instrument-sans/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    font-variation-settings: 'SOFT' 0, 'WONK' 0, 'opsz' 40;
+    letter-spacing: -0.015em;
+  }
+
+  /* Usability NFR: focus must stay visible for keyboard users. */
+  :focus-visible {
+    outline: 2px solid #2f6f5e;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded border border-line bg-surface px-3 py-2 text-ink
+           placeholder:text-muted/70 focus:border-moss focus:outline-none;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded px-4 py-2 font-medium
+           transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-moss text-white hover:bg-moss-deep;
+  }
+
+  .btn-quiet {
+    @apply btn border border-line bg-surface text-ink hover:border-moss hover:text-moss-deep;
+  }
+
+  .panel {
+    @apply border border-line bg-surface;
+  }
+
+  /* The scale track. Styled on both WebKit and Firefox so the control looks
+     the same in the browsers named in the Environmental NFR. */
+  .scale-input {
+    @apply h-2 w-full cursor-pointer appearance-none rounded-full bg-line;
+  }
+
+  .scale-input::-webkit-slider-thumb {
+    @apply h-7 w-7 appearance-none rounded-full border-4 border-surface bg-ink;
+    box-shadow: 0 1px 4px rgb(22 33 46 / 0.3);
+  }
+
+  .scale-input::-moz-range-thumb {
+    @apply h-7 w-7 rounded-full border-4 border-surface bg-ink;
+    box-shadow: 0 1px 4px rgb(22 33 46 / 0.3);
+  }
+}
