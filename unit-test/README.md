@@ -12,7 +12,7 @@ npm test
 
 ## Test Plan
 
-**Scope:** The unit tested is the assessRisk method of the CrisisService class from the class diagram in section 2.5.2. This method indicates whether a user’s check-in is showing signs of crisis based on the values of moodScore and stressLevel. Because the full application was not implemented, the assessRisk method is implemented as a standalone JavaScript function to demonstrate the test plan.
+**Scope:** The unit tested is the assessRisk method of the CrisisService class from the class diagram in section 2.5.2. This method indicates whether a user’s check-in is showing signs of crisis based on the values of moodScore and stressLevel. The assessRisk method is implemented in the prototype’s CrisisService (ClearMind/server/services/crisisService.js), where the check-in route uses it to validate and flag every check-in. The tests run against that code.
 
 **Objectives:** There are three behaviors being tested. The function returns true if either mood or stress passes or is at the threshold defined as MOOD_THRESHOLD = 2 and STRESS_THRESHOLD = 9 (for moodScore <= 2, for stressLevel >= 9). The function returns false if neither value meets or passes the threshold. The function throws an error if the input is invalid (not in range [1-10] for mood/stress, not a number, null object, undefined object).
 
